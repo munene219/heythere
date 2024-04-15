@@ -22,5 +22,8 @@ urlpatterns = [
     path('register/', include('registration.urls')),
     path('admin/', admin.site.urls),
     path('login/', include('registration.urls')),
+    path('contact_us/', include('registration.urls')),
+    path('about_us/', include('registration.urls')),
     path('home/', include('registration.urls')),
+    path('/', include('registration.urls')),
 ]

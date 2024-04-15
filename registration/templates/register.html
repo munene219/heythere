@@ -1,11 +1,116 @@
 {% extends 'base.html' %}
-{% block content %}
-    <p><h1 style="color: #4ac1f7">This is my first template in django</h1>
-While  it  is  true  a  narrative  is  a  story,  there  is  more  in  the  telling  of  the  story.  The
-narrative, or story, needs to make the reader feel involved, teach a lesson, help get an
-idea across, or feel emotionally about it. The narrative needs to explain who is in the
-story, tell what is happening, and when it happened. The topic sentence needs to be
-clear so the readers know they are going to learn something from the story. The story
-itself is written in time, or chronological
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<header>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-success">
+    <div class="container-fluid">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link home" href="{% url 'myhomepage' %}">Home</a>
+            </li>
+                 <li class="nav-item">
+                <a class="nav-link home" href="{% url 'myaboutpage' %}">About</a>
+            </li>
+                 <li class="nav-item">
+                <a class="nav-link home" href="{% url 'mycourses' %}">Courses</a>
+            </li>
+              </li>
+                 <li class="nav-item">
+                <a class="nav-link home" href="{% url 'myregister' %}">Register</a>
+            </li>
+              <li class="nav-item">
+                <a class="nav-link home" href="{% url 'mylogin' %}">login</a>
+            </li>
 
-{% endblock %}
+
+
+        </ul>
+    </div>
+</nav>
+    <br>
+    </header>
+<main>
+<div>
+    <div class="container-fluid bg-dark text-white" style="float: right">
+        <div class="row justify-content-center">
+            <div class="col-md-6 mt-5">
+                <h2 class="text-center mb-4">Register Form</h2>
+                <form action="*/addstudent" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="username">firstname</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="username">lastname</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                     <div class="form-group">
+                        <label for="email">Age</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                     <div class="form-group">
+                        <label for="number">Phone Number</label>
+                        <input type="number" class="form-control" id="number" name="number" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>>
+</main>
+<br>
+                <footer class="container-fluid bg-dark text-white py-4 ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h5>About Our School Program</h5>
+                   <h3>
+                             Get In Touch
+                        </h3>
+                        <p>
+                            join our mailing list and get up to date with latest<br>
+                            on news, scholarships and free bootcamps.<br>
+                            <input type="email" name="email" value="enter emeil" style="background-color: white; border-radius: 20px">
+                            <input type="submit" name="subscribe button" value="subscribe" style="background-color: red; border-radius: 15px">
+                        </p>
+            </div>
+            <div class="col-md-3">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Contact Us</h5>
+                <ul class="list-unstyled">
+                    <li>Address: 123 School St, City, State</li>
+                    <li>Email: info@schoolprogram.com</li>
+                    <li>Phone: 123-456-7890</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center"><br>
+                <p style="margin-top: 30px">&copy; 2024 School Program. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+        </footer>
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+

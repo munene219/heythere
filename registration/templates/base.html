@@ -4,47 +4,92 @@
     <meta charset="UTF-8">
     <title>
         {% block title %}
-            default title
+           Default title
         {% endblock %}
     </title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
- <nav class="navbar navbar-expand-sm bg-light">
-     <div class="container-fluid">
-    <!-- Links -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link login" href="login.html">login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link home" href="home.html">home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link register" href="register.html">register</a>
-      </li>
-    </ul>
-  </div>
+<nav class="navbar navbar-expand-sm bg-dark navbar-success">
+    <div class="container-fluid">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link home" href="{% url 'myhomepage' %}">Home</a>
+            </li>
+                 <li class="nav-item">
+                <a class="nav-link home" href="{% url 'myaboutpage' %}">About</a>
+            </li>
+                 <li class="nav-item">
+                <a class="nav-link home" href="{% url 'mycourses' %}">Courses</a>
+            </li>
+                 <li class="nav-item">
+                <a class="nav-link home" href="{% url 'myregister' %}">Register</a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link home" href="{% url 'mylogin' %}">login</a>
+            </li>
+
+
+
+        </ul>
+    </div>
 </nav>
 
     <header>
         {% block header %}
-            Default header
-         {% endblock %}
+            default
+        {% endblock %}
     </header>
     <main>
-         {% block content %}
-            <p>My Content</p>
-         {% endblock %}
+        {% block content %}
+        My content
+        {% endblock %}
     </main>
-    <footer>
-         {% block footer%}
-            <p>@ 2024 My Site</p>
-         {% endblock %}
-    </footer>>
+                <footer class="bg-dark text-white py-4 ">
+        {% block footer %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h5>About Our School Program</h5>
+                   <h3>
+                             Get In Touch
+                        </h3>
+                        <p>
+                            join our mailing list and get up to date with latest<br>
+                            on news, scholarships and free bootcamps.<br>
+                            <input type="email" name="email" value="enter emeil" style="background-color: white; border-radius: 20px">
+                            <input type="submit" name="subscribe button" value="subscribe" style="background-color: red; border-radius: 15px">
+                        </p>
+            </div>
+            <div class="col-md-3">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Contact Us</h5>
+                <ul class="list-unstyled">
+                    <li>Address: 123 School St, City, State</li>
+                    <li>Email: info@schoolprogram.com</li>
+                    <li>Phone: 123-456-7890</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p>&copy; 2024 School Program. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+        {% endblock %}
+        </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 </body>
 </html>
