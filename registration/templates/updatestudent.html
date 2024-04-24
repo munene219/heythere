@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% extends 'dashboard.html' %}
+{% block title %}
+    Emobilis Dashboard
+{% endblock %}
+
+{% block content %}
+
+
+
+    <!-- Left Column: Student Registration Form -->
+    <div class="container ml-2 p-4 col-md-6" >
+      <u><h3 class="bg-dark text-white p-1 text-center">Update Student Details </h3></u>
+
+          <form method="POST" action="/updatestudent/{{ data.id }}" style="background-color:darkseagreen;padding:10px;" >
+              {% csrf_token %}
+            <div class="mb-3">
+              <label for="name" class="form-label">first name</label>
+              <input type="text" class="form-control" name="first name" value="{{ data.studentname }}" id="name" placeholder="Enter your name" required>
+            </div>
+            <div class="mb-3">
+              <label for="name" class="form-label">last name</label>
+              <input type="text" class="form-control" name="last name" value="{{ data.studentname }}" id="name" placeholder="Enter your name" required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" name="email" value="{{ data.email }}" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="mb-3">
+              <label for="age" class="form-label">Age</label>
+              <input type="number" class="form-control" name="age" value="{{ data.age }}" id="age" placeholder="Enter your age" required>
+            </div>
+            <div class="mb-3">
+              <label for="age" class="form-label">phone number</label>
+              <input type="number" class="form-control" name="phone" value="{{ data.age }}" id="number" placeholder="Enter your age" required>
+            </div>
+            <button type="submit" class="btn btn-primary m-1">Update</button>
+          </form>
+
+    </div>
+
+
+
+{% endblock %}
+</body>
+</html>

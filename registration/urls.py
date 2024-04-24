@@ -11,5 +11,7 @@ urlpatterns = [
     path('addstudent', views.addstudent, name='addstudent'),
     path('dashboard/', views.dashboard, name='dashboard'),
     path('', views.dashboard, name='myhome'),
-
+    path('editstudent/<id>', views.editstudent, name='editstudent'),
+    path('updatestudent/<id>', views.updatestudent, name='updatestudent'),
+    path('deletestudent/<id>', views.deletestudent),
 ]

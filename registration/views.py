@@ -5,7 +5,7 @@ from django.template import loader #for routing your templates
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.csrf import csrf_exempt
 
-from registration.models import student,testmonkey
+from registration.models import student, testmonkey
 
 
 
@@ -21,8 +21,9 @@ def home(request):
     return HttpResponse(template.render())
 
 def dashboard(request):
-    template = loader.get_template('dashboard.html')
-    return HttpResponse(template.render())
+    data = testmonkey.objects.all();
+    context = {'data': data}
+    return render(request, 'dashboard.html', context)
 
 def login(request):
     template = loader.get_template('login.html')
@@ -44,7 +45,7 @@ def addstudent(request):
          email = request.POST.get('email')
          phone = request.POST.get('phone')
          age = request.POST.get('age')
-
+        # display work in the terminal to see if the code is okay
          mydata = {'firstname': fname, 'lastname': lname, 'email': email, 'phone': phone, 'age': age}
          print(mydata)
 
@@ -52,8 +53,40 @@ def addstudent(request):
          teststudent.save()
 
         # fetch the student data to be displayed
+        # you rander the request to the place you want the data to be displayed ie:a table in another page
     data = testmonkey.objects.all()
     context = {'data':data}
     return render(request, 'dashboard.html', context)
+
+
+
+
+def editstudent(request,id):
+  data = testmonkey.objects.get(id=id)
+  context = {'data': data}
+  return render(request, 'updatestudent.html', context)
+
+def updatestudent(request,id):
+  if request.method == 'POST':
+    firstname = request.POST.get('firstname')
+    lastname = request.POST.get('lastname')
+    email = request.POST.get('email')
+    age = request.POST.get('age')
+    number = request.POST.get('number')
+
+    #modify the student details based on the student id given
+    editstudent = testmonkey.objects.get(id=id)
+    editstudent.studentname = firstname
+    editstudent.studentname = lastname
+    editstudent.email = email
+    editstudent.age= age
+    editstudent.number = number
+    editstudent.save()
+  return redirect('/dashboard')
+
+def deletestudent(request,id):
+  deletestudent = testmonkey.objects.get(id=id)
+  deletestudent.delete()
+  return redirect('/dashboard')
 # Create your views here.
 
